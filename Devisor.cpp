@@ -3,26 +3,20 @@
 using namespace std;
 int main()
 {
-    ll t;
-    cin>>t;
-    for(int i=1;i<=t;i++)
-    {
-
-        int x;
-        cin>>x;
-        cout<<"case "<<i<<": ";
-        for(int i=1;i<=x;i++)
-        {
-            if(x%i==0)
-            {
-                cout<<i<<" ";
-            }
-        }
-        cout<<endl;
+   ll t;
+   cin>>t;
+   while(t--)
+   {
+      ll a,b,c;
+      cin>>a>>b>>c;
+      ll l= (a/c)*c;
+      if(l<a) l+=c;
+      for(ll i=l;i<=b;i+=c)
+        cout<<i<<endl;
 
 
-
-    }
+   }
+   cout<<endl;
 
     return 0;
 }
