@@ -5,9 +5,27 @@
 #define done }
 #define print cout
 #define jodi if
+
 using namespace std;
 int temp[100005];
 int num[100005];
+
+
+int fact(ll f)
+{
+    if(f<=1)
+    {
+        return 1;
+    }
+    else{
+
+        return f*fact(f-1);
+    }
+
+
+}
+
+
 void MargeSort(ll lo,ll hi)
 {
     if(lo==hi) return;
@@ -69,7 +87,6 @@ do
     {
         if(prime[i]==0)
         {
-            //print<<i<<endl;
             a[k]=i;
             k++;
             cnt++;
@@ -99,7 +116,7 @@ do
     {
         cout<<b[i]<<" ";
     }
-    //system("powershell");
+
     ll flag2=0;
     for(ll i=1;i<=cnt2-1;i++)
     {
@@ -126,7 +143,45 @@ do
     {
         cout<<i<<" ase "<<c[i]<<" ber "<<" ";
     }
+     //system("debian");
 
+     //dynamic programming
+    ll kba,bs;
+    cin>>kba>>bs;
+    ll weight[kba+1],cost[kba+1],dp[kba+1][bs+1];
+    for(ll i=1;i<=kba;i++)
+    {
+        cin>>weight[i];
+    }
+    for(ll i=1;i<=bs;i++)
+    {
+        cin>>cost[i];
+    }
+    for(ll i=0;i<=kba;i++)
+    {
+        for(ll j=0;j<=bs;j++)
+        {
+              if(!i || !j)
+              {
+                   dp[i][j]=0;
+                   continue;
+              }
+              if(weight[i]>j)
+              {
+                   dp[i][j]=dp[i-1][j];
+              }
+              else{
 
+                   dp[i][j]=max(dp[i-1][j-weight[i]]+cost[i],dp[i-1][j]);
+              }
+        }
+
+    }
+    cout<<dp[kba][bs];
+    ///factorial
+    ll f;
+    cin>>f;
+    cout<<fact(f)<<endl;
     return 0;
 done
+
