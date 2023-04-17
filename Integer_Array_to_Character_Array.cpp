@@ -27,7 +27,8 @@ int main(){
                 k++;
             }
             for (int j = k - 1; j >= 0; j--) {
-                crr[l++] = digits[j] + '0';
+                crr[l] = digits[j] + '0';
+                l++;
             }
                 crr[l++] = ' ';
      }
